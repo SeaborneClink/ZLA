@@ -1,0 +1,408 @@
+;ZLA POSITION ID FILE
+;
+;Original POF file created by David Hendleman and Mike Evans.
+;Version 2.54 5 Apr 2012 amended by Eric Stearns
+;  Version 2.54 updates ZOA freqs for sectors A and B.
+;Version 2.53 18 Nov 2010 amended by Eric Stearns
+;  Version 2.53 corrects NZY_GND frequency, RIV_APP squawk code range updated, DEN_CTR data updated
+;Version 2.52 27 Aug 2009 amended by Alex Stjepanovic
+;  version 2.52 adds NID_TWR and PMD_APP as positions, amended some CID data
+;Version 2.51 10 Jun 2009 amended by Eric Stearns
+;  version 2.51 corrects spelling of "Mojave" and adds alternate LAX_FE_APP frequency
+;version 2.50 12 Mar, 2009 amended by Eric Stearns and Alex Stjepanovic
+;  version 2.50 adds numerous ZLA tower/ground/clearance positions, reallocates squawk code ranges to give most positions a larger range, reorganizes neighboring center sectors, adds new ZLA center sector, PHX_APP deleted, added second FAT_APP freq
+;version 2.41 20 Nov, 2008 amended by Eric Stearns and Alex Stjepanovic
+;  version 2.41 updates the identifier for Yuma from "YUM" to "NYL", adds new ZAB combined frequency, adds SBD_TWR data, adds second LSV_APP frequency
+;version 2.40 20 July, 2008 amended by Alex Stjepanovic and Eric Stearns
+;  version 2.40 changes LAS_APP frequencies to eliminate conflict, updates MMZT_CTR and ZAK_FSS, updates the N/S orientation of the LAX_GND frequencies, and updates LSV_TWR freq, add second SAN_APP freq
+;version 2.34 7 May, 2008 amended by Alex Stjepanovic
+;  version 2.34 Updates PSP_APP to reflect new callsign of "Socal Approach"; other minor bug fixes
+;version 2.33 1 March, 2008 amended by Eric Stearns
+;  version 2.33 corrects small error in LAS_APP information
+;version 2.32 5 February, 2008 amended by Eric Stearns
+;  version 2.32 revises LAS_APP info
+;version 2.31 25 January, 2008 amended by Eric Stearns
+;  version 2.31 revises DEN_CTR freqs and adds support for second ZAK callsign
+;version 2.30 10 April, 2007 amended by Eric Stearns
+;  version 2.30 updates ZAB info for new sectors, adds ZDV subsectors
+;version 2.20 15 July, 2006 amended by Eric Stearns
+;  version 2.20 updates/adds ABQ center sector data; adds RNM_TWR & HND_TWR; changes squawk code allocation per VATUSA policy.
+;version 2.19 30 April, 2006 amended by Eric Stearns
+;  version 2.19 adds TMU_FSS position for use during events & corrects SLC_CTR freq
+;version 2.18 24 November, 2004 amended by Mark Coldwell
+;  version 2.18 amends Las Vegas Ground / North Las Vegas Tower position data
+;version 2.17 07 October, 2004 amended by Mark Coldwell
+;  version 2.17 corrects Riverside Tower / March Tower frequencies
+;version 2.16 07 July, 2003 amended by Dale Laizure - Special thanks to Jim Karn
+;  version 2.16 corrects Las Vegas Ground frequency
+;version 2.15 26 June, 2003 amended by Dale Laizure
+;  version 2.15 corrects an errant entry for the San Luis Obispo Tower frequency
+;version 2.14 17 April, 2003 amended by David Hendleman
+;  version 2.14 changes beacon allocations
+;version 2.13 5 April, 2003 amended by David Hendleman
+;  version 2.13 corrects MMZT and ABQ Center entries
+;version 2.12 30 March, 2003 amended by David Hendleman
+;  version 2.12 adds tags for all towers
+;version 2.11 1 February, 2003 amended by David Hendleman
+;  version 2.11 corrects spelling error, and added major ground and clearance del
+;version 2.10 30 January, 2003 amended by David Hendleman
+;  version 2.10 corrects KZAK_FSS entry
+;version 2.09 19 December, 2002 amended by David Hendleman
+;  version 2.09 adds LGB Tower
+;version 2.08 11 November, 2002 amended by David Hendleman
+;  version 2.08 adds Fresno and Lemoore support
+;version 2.07 11 November, 2002 amended by David Hendleman
+;  version 2.07 adds MMTJ support
+;version 2.06, 15 October, 2002 amended by David Hendleman
+;  version 2.06 fixes a bug
+;version 2.05, 02 October, 2002 amended by David Hendleman
+;  version 2.05 adds support for ZLA AREA F
+;version 2.03, 05 September, 2002 amended by David Hendleman
+;  version 2.03 adds support for ZOA sectorization
+;Version 2.02, 02 September, 2002 amended by Jeff Clark
+;  Version 2.02 includes modified header file information, and corrects error with 00 series codes.
+;Version 2.01, 01 September, 2002 amended by Jeff Clark
+;  changes squawk code allocations for ZLA facilities, as well as new entries for all towered fields.
+;
+;USE THIS FILE TO CREATE UNIQUE STATIC CONTROLLER POSITION ID'S FOR YOUR ASRC RADAR CLIENT.
+;AMENDING THIS FILE ONLY CHANGES THE WAY CONTROLLERS APPEAR TO YOU, AND DO NOT AFFECT
+;THE WAY OTHER CLIENTS SEE YOU, OR THE WAY THAT THEY SEE OTHER CONTROLLERS.
+;
+;
+;THIS FILE USES THE FOLLOWING FORMAT -->
+;NAME:RNAME:FREQ:SECID:ARTSTAG:CALLPREFIX:CALLSUFFIX:LINE1:LINE2:LSQUAWK:HSQUAWK
+;
+;NAME = SECTOR NAME
+;RNAME = RADIO CALLSIGN
+;FREQ = FREQUENCY MATCH FOR THIS POSITION
+;SECID = SECTOR ID USED FOR HANDOFFS & ATC-ATC COMMS
+;ARTSTAG = POSITION SYMBOL ON THE ARTS SCOPE
+;CALLPREFIX = PREFIX MATCH FOR THIS POSITION
+;CALLSUFFIX = SUFFIX MATCH FOR THIS POSITION
+;LINE1 = FIRST LINE TO DISPLAY ON EACH KEY IN VSCS
+;LINE2 = SECOND LINE TO DISPLAY ON EACH KEY IN VSCS
+;LSQUAWK = LOW END OF SQUAWK RANGE FOR THIS POSITION
+;HSQUAWK = HIGH END OF SQUAWK RANGE FOR THIS POSITION
+;
+;SQUAWK ALLOCATION SUMMARY (these are all the codes we are assigned by VATUSA)(704[694] squawks):
+; 7001-7177(128) - LAX_DEL/GND/TWR[7001-7177:128]
+; 7101-7377(192) - LAX_CTR[7101-7377:192]
+; 1001-1077(64)  - BUR_DEL/GND/TWR/APP[1001-1047:40], NTD_DEL/GND/TWR/APP[1050-1077:24], BUR_DEL/GND/TWR[1001-1047:40], VNY_DEL/GND/TWR[1001-1030:24], WHP_GND/TWR[1030-1047:16], OXR_GND/TWR[1050-1067:16], CMA_GND/TWR[1060-1077:16]
+; 6701-6777(64)  - SNA_DEL/GND/TWR/APP[6701-6777:64], LGB_DEL/GND/TWR[6750-6777:24], FUL_GND/TWR[6720-6737:16], SLI_GND/TWR[6720-6737:16], NSI_TWR[6730-6747:16], NUC_GND/TWR[6730-6747:16], NFG_DEL/GND/TWR[6750-6767:16]
+; 2001-2077(64)  - ONT_DEL/GND/TWR/APP[2001-2047:40], BFL_GND/TWR/APP[2050-2077:24], RIV_APP[2001-2047:40], CNO_GND/TWR[2001-2017:16], EMT_GND/TWR[2020-2037:16], POC_GND/TWR[2020-2037:16], RAL_GND/TWR[2001-2017:24], RIV_GND/TWR[2030-2047:16], SBD_GND/TWR[2030-2047:16]
+; 1301-1377(64)  - LAS_DEL/GND/TWR/APP[1301-1377:64], LSV_DEL/GND/TWR/APP[1350-1377:24], VGT_DEL/GND/TWR[1307-1317:16], HND_GND/TWR[1360-1377:16], GCN_GND/TWR[1330-1357:24]
+; 5701-5777(64)  - SAN_DEL/GND/TWR/APP[5701-5777:64], CRQ_DEL/GND/TWR[5740-5757:16], MYF_DEL/GND/TWR[5701-5717:16], NKX_DEL/GND/TWR[5701-5717:16], NZY_DEL/GND/TWR[5750-5777:16], SDM_GND/TWR[5720-5737:16], RNM_GND/TWR[5760-5777:16], RNM_GND/TWR[5720-5737:16]
+; 4601-4777(128) - LAX_DEP/APP[4601-4777:128], SMO_GND/TWR[4630-4657:24], HHR_GND/TWR[4750-4777:24], TOA_GND/TWR[4707-4727:24]
+; 5301-5377(64)  - PSP_DEL/GND/TWR/APP[5301-5347:40], NYL_DEL/GND/TWR/APP[5350-5377:24], IFP_GND/TWR[5360-5377:16], NJK_GND/TWR[5350-5367:16], NXP_TWR[5320-5337:16], LGF_GND[5360-5377:16]
+; 5101-5177(64)  - SBA_DEL/GND/TWR/APP[5101-5137:32], EDW_GND/TWR/APP[5140-5177:32], PMD_GND/TWR[5140-5157:16], VCV_GND/TWR[5140-5157:16], MHV_GND/TWR[5160-5177:16], WJF_GND/TWR[5140-5157:16], SBP_GND/TWR[5120-5137:16], SMX_GND/TWR[5107-5127:16], VBG_GND/TWR[5107-5127:16]
+;
+; LOS ANGELES CENTERS (20'S)
+;
+Los Angeles Center:-:125.800:20:C:LAX:CTR:LAX:CTR:7101:7377
+Los Angeles Center:-:135.300:21:C:LAX:CTR:LAX:A:7101:7137
+Los Angeles Center:-:127.100:22:C:LAX:CTR:LAX:B:7140:7177
+Los Angeles Center:-:133.200:23:C:LAX:CTR:LAX:CS:7200:7247
+Los Angeles Center:-:135.250:24:C:LAX:CTR:LAX:D:7250:7307
+Los Angeles Center:-:119.950:25:C:LAX:CTR:LAX:E:7310:7337
+Los Angeles Center:-:127.350:26:C:LAX:CTR:LAX:F:7340:7377
+Los Angeles Center:-:133.550:27:C:LAX:CTR:LAX:CN:7200:7247
+;
+;
+; NEIGHBORING CENTERS
+;
+;ZOA
+Oakland Center:-:132.200:30:C:OAK:CTR:OAK:CTR
+Oakland Center:-:133.700:31:C:OAK:CTR:OAK:A
+Oakland Center:-:119.750:32:C:OAK:CTR:OAK:B
+Oakland Center:-:128.800:33:C:OAK:CTR:OAK:C
+;
+;ZLC
+Salt Lake Center:-:133.600:40:C:SLC:CTR:SLC:C
+Salt Lake Center:-:132.400:41:C:SLC:CTR:SLC:A
+Salt Lake Center:-:127.750:44:C:SLC:CTR:SLC:B
+Salt Lake Center:-:132.250:45:C:SLC:CTR:SLC:D
+;
+;ZDV
+Denver Center:-:135.600:50:C:DEN:CTR:DEN:LO
+Denver Center:-:132.700:51:C:DEN:CTR:DEN:HE
+Denver Center:-:124.800:52:C:DEN:CTR:DEN:HI
+Denver Center:-:132.100:53:C:DEN:CTR:DEN:HW
+Denver Center:-:125.900:54:C:DEN:CTR:DEN:HS
+Denver Center:-:128.500:55:C:DEN:CTR:DEN:LN
+Denver Center:-:132.500:56:C:DEN:CTR:DEN:LE
+Denver Center:-:134.500:57:C:DEN:CTR:DEN:LW
+;
+;ZAB
+Albuquerque Center:-:127.850:15:C:ABQ:CTR:ABQ:15 ; primary freq, freqs assigned CID numbers matching sector number used by ZAB
+Albuquerque Center:-:126.450:42:C:ABQ:CTR:ABQ:42
+Albuquerque Center:-:128.450:43:C:ABQ:CTR:ABQ:43
+Albuquerque Center:-:124.320:17:C:ABQ:CTR:ZAB:17
+Albuquerque Center:-:128.200:19:C:ABQ:CTR:ZAB:19
+Albuquerque Center:-:132.900:38:C:ABQ:CTR:ZAB:38
+Albuquerque Center:-:125.400:46:C:ABQ:CTR:ZAB:46
+Albuquerque Center:-:120.970:63:C:ABQ:CTR:ZAB:63
+Albuquerque Center:-:133.650:94:C:ABQ:CTR:ZAB:94
+Albuquerque Center:-:134.750:97:C:ABQ:CTR:ZAB:97
+;
+;MMZT
+Mazatlan Center:-:128.300:60:C:MMZT:CTR:MMZT:CTR
+Mazatlan Center:-:126.300:61:C:MMZT:CTR:MMZT:CTR
+Mazatlan Center:-:128.000:62:C:MMZT:CTR:MMZT:CTR
+Mazatlan Center:-:124.200:64:C:MMZT:CTR:MMZT:CTR
+;
+;ZAK
+San Francisco Radio:-:131.950:70:C:KZAK:FSS:KZAK:FSS
+San Francisco Radio:-:131.950:71:C:ZAK:FSS:ZAK:FSS
+San Francisco Radio:-:122.600:72:C:ZAK:FSS:ZAK:FSS
+San Francisco Radio:-:122.500:73:C:ZAK:FSS:ZAK:FSS
+San Francisco Radio:-:122.650:74:C:ZAK:FSS:ZAK:FSS
+San Francisco Radio:-:122.550:75:C:ZAK:FSS:ZAK:FSS
+San Francisco Radio:-:131.900:76:C:ZAK:FSS:ZAK:FSS
+;
+;
+; SOCAL APPROACH
+; Los Angeles Sector (1)
+;
+Los Angeles West/Combined Approach:Socal Approach:124.500:1W:W:LAX:APP:LAX W:APP:4601:4777
+Los Angeles North Approach:Socal Approach:128.500:1N:N:LAX:APP:LAX N:APP:4601:4777
+Los Angeles South Approach:Socal Approach:124.900:1S:S:LAX:APP:LAX S:APP:4601:4777
+Los Angeles Feeder Approach:Socal Approach:124.050:1F:F:LAX:APP:LAX F:APP:4601:4777
+Los Angeles Feeder Approach:Socal Approach:132.370:1E:F:LAX:APP:LAX F:APP:4601:4777
+Los Angeles Departure:Socal Departure:124.300:1D:D:LAX:DEP:LAX:DEP:4601:4777
+Los Angeles South Tower:Los Angeles Tower:120.950:1T:T:LAX:TWR:LAX:TWR:7001:7177
+Los Angeles North Tower:Los Angeles Tower:133.900:1U:U:LAX:TWR:LAX:N TWR:7001:7177
+Los Angeles Ground:-:121.650:1G:-:LAX:GND:LAX:GND:7001:7177
+Los Angeles Ground:-:121.750:1H:-:LAX:GND:LAX:S GND:7001:7177
+Los Angeles Clearance:-:121.400:1V:-:LAX:DEL:LAX:DEL:7001:7177
+Santa Monica Tower:-:120.100:1J:T:SMO:TWR:SMO:TWR:4630:4657
+Hawthorne Tower:-:121.100:1K:T:HHR:TWR:HHR:TWR:4750:4777
+Torrance Tower:-:135.600:1L:T:TOA:TWR:TOA:TWR:4707:4727
+Santa Monica Ground:-:121.900:1Q:-:SMO:GND:SMO:GND:4630:4657
+Hawthorne Ground:-:125.100:1R:T:HHR:GND:HHR:GND:4750:4777
+Torrance Ground:-:120.900:1Y:-:TOA:GND:TOA:GND:4707:4727
+;
+; SOCAL APPROACH
+; Burbank Sector (2)
+;
+Burbank Approach:Socal Approach:134.200:2B:B:BUR:APP:BUR:APP:1001:1047
+Burbank Tower:-:118.700:2T:T:BUR:TWR:BUR:TWR:1001:1047
+Burbank Ground:-:123.900:2G:-:BUR:GND:BUR:GND:1001:1047
+Burbank Clearance:-:118.000:2V:-:BUR:DEL:BUR:DEL:1001:1047
+Van Nuys Tower:-:119.300:2U:U:VNY:TWR:VNY:TWR:1001:1030
+Whiteman Tower:-:135.000:2A:T:WHP:TWR:WHP:TWR:1030:1047
+Van Nuys East Tower:Van Nuys Tower:120.200:2E:T:VNY:TWR:VNY:TWR:1001:1030
+Van Nuys Ground:-:121.700:2Q:-:VNY:GND:VNY:GND:1001:1030
+Van Nuys Clearance:-:126.600:2W:-:VNY:DEL:VNY:DEL:1001:1030
+Whiteman Ground:-:125.000:2H:-:WHP:GND:WHP:GND:1030:1047
+;
+; SOCAL APPROACH
+; Empire Sector (3)
+;
+Empire Approach:Socal Approach:127.250:3E:E:ONT:APP:ONT:APP:2001:2047
+March Approach:March Approach:133.500:3M:M:RIV:APP:RIV:APP:2001:2017
+Ontario Tower:-:120.600:3T:T:ONT:TWR:ONT:TWR:2001:2047
+Ontario Ground:-:121.900:3G:-:ONT:GND:ONT:GND:2001:2047
+Ontario Clearance:-:118.100:3V:-:ONT:DEL:ONT:DEL:2001:2047
+Chino Tower:-:118.500:3A:T:CNO:TWR:CNO:TWR:2001:2017
+El Monte Tower:-:121.200:3B:T:EMT:TWR:EMT:TWR:2020:2037
+Brackett Tower:-:118.200:3C:T:POC:TWR:POC:TWR:2020:2037
+Riverside Tower:-:121.000:3D:T:RAL:TWR:RAL:TWR:2001:2017
+March Tower:-:127.650:3H:T:RIV:TWR:RIV:TWR:2030:2047
+San Bernadino Tower:-:119.450:3J:T:SBD:TWR:SBD:TWR:2030:2047
+Chino Ground:-:121.600:3Q:-:CNO:GND:CNO:GND:2001:2017
+El Monte Ground:-:125.900:3Y:-:EMT:GND:EMT:GND:2020:2037
+Brackett Ground:-:125.000:3R:-:POC:GND:POC:GND:2020:2037
+Riverside Ground:-:121.700:3P:-:RAL:GND:RAL:GND:2001:2017
+March Ground:-:121.750:3L:-:RIV:GND:RIV:GND:2030:2047
+San Bernadino Ground:-:121.800:3U:-:SBD:GND:SBD:GND:2030:2047
+;
+; SOCAL APPROACH
+; San Diego Sector (4)
+;
+San Diego Approach:Socal Approach:119.600:4L:L:SAN:APP:SAN:APP:5701:5777
+San Diego Approach:Socal Approach:124.350:4K:K:SAN:APP:SAN:APP:5701:5777
+San Diego Tower:Lindbergh Tower:118.300:4T:T:SAN:TWR:SAN:TWR:5701:5777
+San Diego Ground:Lindbergh Ground:123.900:4G:-:SAN:GND:SAN:GND:5701:5777
+San Diego Clearance:Lindbergh Clearance:125.900:4V:-:SAN:DEL:SAN:DEL:5701:5777
+Palomar Tower:-:118.600:4A:T:CRQ:TWR:CRQ:TWR:5740:5757
+Montgomery Tower:-:119.200:4B:T:MYF:TWR:MYF:TWR:5701:5717
+Miramar Tower:-:135.200:4D:T:NKX:TWR:NKX:TWR:5701:5717
+North Island Tower:-:135.100:4F:T:NZY:TWR:NZY:TWR:5750:5777
+Brown Tower:-:126.500:4H:T:SDM:TWR:SDM:TWR:5720:5737
+Gillespee Tower:-:120.700:4J:T:SEE:TWR:SEE:TWR:5760:5777
+Ramona Tower:-:119.870:4R:T:RNM:TWR:RNM:TWR:5760:5777
+Imperial Tower:-:120.650:4I:-:NRS:TWR:NRS:TWR:5720:5737
+Palomar Ground:-:121.800:4Y:-:CRQ:GND:CRQ:GND:5740:5757
+Palomar Clearance:-:134.850:4X:-:CRQ:DEL:CRQ:DEL:5740:5757
+Montgomery Ground:-:118.220:4P:-:MYF:GND:MYF:GND:5701:5717
+Montgomery Clearance:-:123.720:4W:-:MYF:DEL:MYF:DEL:5701:5717
+Miramar Ground:-:128.620:4Z:-:NKX:GND:NKX:GND:5701:5717
+Miramar Clearance:-:125.970:4Q:-:NKX:DEL:NKX:DEL:5701:5717
+North Island Ground:-:118.000:4E:-:NZY:GND:NZY:GND:5750:5777
+North Island Clearance:-:128.400:4N:-:NZY:DEL:NZY:DEL:5750:5777
+Brown Ground:-:124.400:4U:-:SDM:GND:SDM:GND:5720:5737
+Gillespee Ground:-:121.700:4M:-:SEE:GND:SEE:GND:5760:5777
+Gillespee Clearance:-:125.100:4S:-:SEE:DEL:SEE:DEL:5760:5777
+Ramona Ground:-:121.650:4C:-:RNM:GND:RNM:GND:5760:5777
+;
+; SOCAL APPROACH
+; Coast Sector (5)
+;
+Coast Approach:Socal Approach:121.300:5J:J:SNA:APP:SNA:APP:6701:6777
+John Wayne Tower:-:126.800:5T:T:SNA:TWR:SNA:TWR:6701:6777
+John Wayne Tower:-:119.900:5U:T:SNA:TWR:SNA:TWR:6701:6777
+John Wayne Ground:-:120.800:5G:-:SNA:GND:SNA:GND:6701:6777
+John Wayne Clearance:-:118.000:5W:-:SNA:DEL:SNA:DEL:6701:6777
+Long Beach Tower:-:119.400:5V:T:LGB:TWR:LGB:TWR:6750:6777
+Long Beach Ground:-:133.000:5H:-:LGB:GND:LGB:GND:6750:6777
+Long Beach Clearance:-:118.150:5X:-:LGB:DEL:LGB:DEL:6750:6777
+Los Alamitos Tower:-:123.850:5A:T:SLI:TWR:SLI:TWR:6720:6737
+Fullerton Tower:-:119.100:5E:T:FUL:TWR:FUL:TWR:6700:6717
+Los Alamitos Ground:-:126.950:5K:-:SLI:GND:SLI:GND:6720:6737
+Fullerton Ground:-:121.800:5F:-:FUL:GND:FUL:GND:6700:6717
+Camp Pendleton Tower:-:128.770:5B:T:NFG:TWR:NFG:TWR:6750:6767 ; moved here since SAN area out of letters
+Camp Pendleton Ground:-:126.200:5C:-:NFG:GND:NFG:GND:6750:6767
+Camp Pendleton Clearance:-:126.200:5D:-:NFG:DEL:NFG:DEL:6750:6767
+;
+; SANTA BARBARA APPROACH (6)
+; MUGU APPROACH
+;
+Santa Barbara Approach:-:125.400:6R:R:SBA:APP:SBA:APP:5101:5137
+Santa Barbara Tower:-:119.700:6T:T:SBA:TWR:SBA:TWR:5101:5137
+Santa Barbara Ground:-:121.700:6G:-:SBA:GND:SBA:GND:5101:5137
+Santa Barbara Clearance:-:132.900:6W:-:SBA:DEL:SBA:DEL:5101:5137
+Mugu Approach:-:124.700:6M:M:NTD:APP:NTD:APP:1050:1077
+Oxnard Tower:-:134.950:6V:T:OXR:TWR:OXR:TWR:1050:1067
+Camarillo Tower:-:128.200:6X:T:CMA:TWR:CMA:TWR:1060:1077
+Mugu Tower:-:124.850:6F:T:NTD:TWR:NTD:TWR:1050:1077
+San Luis Obispo Tower:San Luis Tower:124.000:6A:T:SBP:TWR:SBP:TWR:5120:5137
+Santa Maria Tower:-:118.300:6C:T:SMX:TWR:SMX:TWR:5107:5127
+Vandenberg Tower:-:124.950:6Z:-:VBG:GND:VBG:GND:5107:5127
+Oxnard Ground:-:121.900:6P:-:OXR:GND:OXR:GND:1050:1067
+Camarillo Ground:-:121.800:6H:-:CMA:GND:CMA:GND:1060:1077
+Mugu Ground:-:121.600:6S:-:NTD:GND:NTD:GND:1050:1077
+San Luis Obispo Ground:San Luis Ground:121.600:6J:-:SBP:GND:SBP:GND:5120:5137
+Santa Maria Ground:-:121.900:6Y:-:SMX:GND:SMX:GND:5107:5127
+Vandenberg Ground:-:121.750:6Q:-:VBG:GND:VBG:GND:5107:5127
+San Nicolas Tower:-:126.850:6B:-:NSI:TWR:NSI:TWR:6730:6747
+San Clemente Tower:-:126.750:6L:T:NUC:TWR:NUC:TWR:6730:6747
+San Clemente Ground:-:119.550:6I:-:NUC:GND:NUC:GND:6730:6747
+Mugu Clearance:-:120.750:6U:-:NTD:DEL:NTD:DEL:1050:1077
+;
+; BAKERSFIELD APPROACH (7)
+; JOSHUA APPROACH
+;
+Bakersfield Approach:-:118.800:7F:F:BFL:APP:BFL:APP:2050:2077
+Bakersfield Tower:-:118.100:7T:T:BFL:TWR:BFL:TWR:2050:2077
+Joshua Approach:-:124.550:7H:H:EDW:APP:EDW:APP:5140:5177
+Joshua Approach:-:126.100:7A:A:PMD:APP:PMD:APP:5140:5177
+Edwards Tower:-:120.700:7U:T:EDW:TWR:EDW:TWR:5140:5177
+Mojave Tower:-:127.600:7B:T:MHV:TWR:MHV:TWR:5160:5177
+Palmdale Tower:-:123.700:7C:T:PMD:TWR:PMD:TWR:5140:5157
+Victorville Tower:-:118.350:7D:T:VCV:TWR:VCV:TWR:5140:5157
+Fox Tower:-:120.300:7E:T:WJF:TWR:WJF:TWR:5140:5157
+Bakersfield Ground:-:121.700:7G:-:BFL:GND:BFL:GND:2050:2077
+Edwards Ground:-:121.800:7V:-:EDW:GND:EDW:GND:5140:5177
+Mojave Ground:-:123.900:7K:-:MHV:GND:MHV:GND:5160:5177
+Palmdale Ground:-:121.900:7W:-:PMD:GND:PMD:GND:5140:5157
+Victorville Ground:-:124.450:7X:-:VCV:GND:VCV:GND:5140:5157
+Fox Ground:-:121.700:7Q:-:WJF:GND:WJF:GND:5140:5157
+China Lake Tower:-:120.150:7I:T:NID:TWR:NID:TWR:5160:5177
+;
+; ; SOCAL APPROACH
+; ; Palm Springs Sector (8)
+; ; and YUMA APPROACH
+;
+Palm Springs Approach:Socal Approach:126.700:8P:P:PSP:APP:PSP:APP:5301:5347
+Yuma Approach:-:124.700:8Y:Y:NYL:APP:NYL:APP:5350:5377
+Bullhead City Tower:Bullhead Tower:123.900:8A:T:IFP:TWR:IFP:TWR:5360:5377
+Palm Springs Tower:-:119.700:8B:T:PSP:TWR:PSP:TWR:5301:5347
+Palm Springs Ground:-:121.900:8G:-:PSP:GND:PSP:GND:5301:5347
+Palm Springs Ground:-:128.350:8H:-:PSP:GND:PSP:GND/DEL:5301:5347
+Palm Springs Clearance:-:128.350:8V:-:PSP:DEL:PSP:DEL:5301:5347
+Yuma Tower:-:119.300:8C:T:NYL:TWR:NYL:TWR:5350:5377
+Yuma Ground:-:121.900:8Z:-:NYL:GND:NYL:GND:5350:5377
+Yuma Clearance:-:118.000:8M:-:NYL:DEL:NYL:DEL:5350:5377
+Bullhead City Ground:Bullhead Ground:118.250:8U:-:IFP:GND:IFP:GND:5360:5377
+El Centro Tower:-:119.100:8E:T:NJK:TWR:NJK:TWR:5350:5367
+El Centro Ground:-:121.900:8W:-:NJK:GND:NJK:GND:5350:5367
+Laguna Ground:-:121.800:8L:-:LGF:GND:LGF:GND:5360:5377
+Twentynine Palms Tower:-:135.520:8N:-:NXP:TWR:NXP:TWR:5320:5337
+;
+; LAS VEGAS APPROACH (9)
+; NELLIS APPROACH
+;
+Las Vegas West Approach:Las Vegas Approach:125.900:9W:W:LAS:APP:LAS:APP:1301:1377
+Las Vegas East Approach:Las Vegas Approach:133.950:9E:E:LAS:APP:LAS:APP:1301:1377
+Las Vegas Final/Combined Approach:Las Vegas Approach:135.000:9F:F:LAS:APP:LAS:APP:1301:1377
+Las Vegas Tower:-:119.900:9T:T:LAS:TWR:LAS:TWR:1301:1377
+Las Vegas Tower:-:118.750:9U:T:LAS:TWR:LAS:TWR:1301:1377
+Las Vegas Ground:-:121.100:9G:-:LAS:GND:LAS:GND:1301:1377
+Las Vegas Ground:-:121.900:9H:-:LAS:GND:LAS:GND:1301:1377
+Las Vegas Clearance:-:118.000:9V:-:LAS:DEL:LAS:DEL:1301:1377
+North Las Vegas Tower:-:125.700:9Y:T:VGT:TWR:VGT:TWR:1307:1317
+Henderson Tower:-:125.100:9J:T:HND:TWR:HND:TWR:1360:1377
+Nellis Control:-:126.650:9S:S:LSV:APP:LSV:APP:1350:1377
+Nellis Control:-:124.950:9N:N:LSV:APP:LSV:APP:1350:1377
+Nellis Tower:-:132.550:9X:T:LSV:TWR:LSV:TWR:1350:1377
+Grand Canyon Tower:-:119.000:9A:T:GCN:TWR:GCN:TWR:1330:1357
+North Las Vegas Ground:-:121.700:9Q:-:VGT:GND:VGT:GND:1307:1317
+North Las Vegas Clearance:-:124.000:9P:-:VGT:DEL:VGT:DEL:1307:1317
+Henderson Ground:-:127.800:9K:-:HND:GND:HND:GND:1360:1377
+Nellis Ground:-:121.800:9L:-:LSV:GND:LSV:GND:1350:1377
+Nellis Clearance:-:120.900:9I:-:LSV:DEL:LSV:DEL:1350:1377
+Grand Canyon Ground:-:121.900:9B:-:GCN:GND:GCN:GND:1330:1357
+;
+; ATIS (A&B)
+;
+Bakersfield ATIS:-:118.600:AK:-:KBFL:ATIS:KBFL:ATIS
+Brackett ATIS:-:124.400:AT:-:KPOC:ATIS:KPOC:ATIS
+Brown ATIS:-:132.350:BD:-:KSDM:ATIS:KSDM:ATIS
+Burbank ATIS:-:134.500:AB:-:KBUR:ATIS:KBUR:ATIS
+Camarillo ATIS:-:126.020:AC:-:KCMA:ATIS:KCMA:ATIS
+Chino ATIS:-:125.850:AN:-:KCNO:ATIS:KCNO:ATIS
+El Monte ATIS:-:118.750:AE:-:KEMT:ATIS:KEMT:ATIS
+Fox ATIS:-:126.300:AF:-:KWJF:ATIS:KWJF:ATIS
+Fullerton ATIS:-:125.050:AU:-:KFUL:ATIS:KFUL:ATIS
+Gillespee ATIS:-:125.450:AG:-:KSEE:DEL:KSEE:ATIS
+Grand Canyon ATIS:-:124.300:AD:-:KGCN:ATIS:KGCN:ATIS
+Hawthorne ATIS:-:118.400:AH:-:KHHR:ATIS:KHHR:ATIS
+Henderson ATIS:-:120.770:BH:-:KHND:ATIS:KHND:ATIS
+John Wayne ATIS:-:126.000:AJ:-:KSNA:ATIS:KSNA:ATIS
+Las Vegas ATIS:-:132.400:AV:-:KLAS:ATIS:KLAS:ATIS
+Lindbergh ATIS:-:134.800:AS::KSAN:ATIS:KSAN:ATIS
+Long Beach ATIS:-:127.750:BL:-:KLGB:ATIS:KLGB:ATIS
+Los Alamitos ATIS:-:118.870:BA:-:KSLI:ATIS:KSLI:ATIS
+Los Angeles ATIS:-:133.800:AL:-:KLAX:ATIS:KLAX:ATIS
+March ATIS:-:134.750:AR:-:KRIV:ATIS:KRIV:ATIS
+Montgomery ATIS:-:126.900:AM:-:KMYF:ATIS:KMYF:ATIS
+North Las Vegas ATIS:-:118.050:BN:-:KVGT:ATIS:KVGT:ATIS
+Ontario ATIS:-:124.250:AO:-:KONT:ATIS:KONT:ATIS
+Oxnard ATIS:-:118.050:AX:-:KOXR:ATIS:KOXR:ATIS
+Palm Springs ATIS:-:118.250:AP:-:KPSP:ATIS:KPSP:ATIS
+Palomar ATIS:-:120.150:AQ:-:KCRQ:ATIS:KCRQ:ATIS
+Ramona ATIS:-:132.020:AA:-:KRNM:ATIS:KRNM:ATIS
+Riverside ATIS:-:128.800:AI:-:KRAL:ATIS:KRAL:ATIS
+San Bernadino ATIS:-:124.170:BB:-:KSBD:ATIS:KSBD:ATIS
+San Luis Obispo ATIS:San Luis ATIS:120.600:BU:-:KSBP:ATIS:KSBP:ATIS
+Santa Barbara ATIS:-:132.650:BS:-:KSBA:ATIS:KSBA:ATIS
+Santa Maria ATIS:-:121.150:BX:-:KSMX:ATIS:KSMX:ATIS
+Santa Monica ATIS:-:119.950:BO:-:KSMO:ATIS:KSMO:ATIS
+Torrance ATIS:-:125.600:BT:-:KTOA:ATIS:KTOA:ATIS
+Van Nuys ATIS:-:118.450:BV:-:KVNY:ATIS:KVNY:ATIS
+Whiteman ATIS:-:132.100:AW:-:KWHP:ATIS:KWHP:ATIS
+Yuma ATIS:-:118.800:AY:-:KNYL:ATIS:KNYL:ATIS
+Vandenberg ATIS:-:133.120:BR:-:KVBG:ATIS:KVBG:ATIS
+Mugu ATIS:-:125.550:BM:-:KNTD:ATIS:KNTD:ATIS
+;
+;
+; NON-ZLA TRACONS (0 ZERO)
+;
+Fresno Approach:-:119.600:0F:F:FAT:APP:FAT:APP
+Fresno Approach:-:132.350:0A:F:FAT:APP:FAT:APP
+Lemoore Approach:-:124.100:0L:L:NLC:APP:NLC:APP
+Lemoore Approach:-:118.150:0M:M:NLC:APP:NLC:APP
+Tijuana Approach:-:119.500:0J:J:MMTJ:APP:MMTJ:APP
+Tijuana Approach:-:120.300:0N:N:MMTJ:APP:MMTJ:APP
+Tijuana Tower:-:118.100:0T:T:MMTJ:TWR:MMTJ:TWR
+Traffic Management Unit:-:199.998:0Z:Z:TMU:FSS:TMU:FSS
